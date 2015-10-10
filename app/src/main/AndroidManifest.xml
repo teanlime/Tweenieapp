@@ -8,11 +8,10 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/TweenieappTheme">
 
         <activity
-            android:name="com.teanlime.tweenieapp.activity.authentication.LoginActivity"
+            android:name="com.teanlime.tweenieapp.ui.activity.authentication.LoginActivity"
             android:label="@string/app_name"
             android:launchMode="singleInstance">
             <intent-filter>
@@ -20,6 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.teanlime.tweenieapp.ui.activity.tweets.TweetsActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"

@@ -1,11 +1,11 @@
-package com.teanlime.tweenieapp.activity.authentication;
+package com.teanlime.tweenieapp.ui.activity.authentication;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.teanlime.tweenieapp.ui.activity.tweets.TweetsActivity;
 import com.teanlime.tweenieapp.tweenieapp.R;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
@@ -38,25 +38,17 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onNewIntent(Intent intent) {
-        Uri uri = intent.getData();
-        String oauthToken = uri.getQueryParameter("oauth_token");
-        String oauthVerifier = uri.getQueryParameter("oauth_verifier");
-
-        //...do what you need with the parameters
-    }
-
     private class LoginHandler extends Callback<TwitterSession> {
         @Override
         public void success(Result<TwitterSession> twitterSessionResult) {
-            String output = "Status: " +
-                    "Your login was successful " +
-                    twitterSessionResult.data.getUserName() +
-                    "\nAuth Token Received: " +
-                    twitterSessionResult.data.getAuthToken().token;
-
-            status.setText(output);
+            startActivity(new Intent(LoginActivity.this, TweetsActivity.class));
+//            String output = "Status: " +
+//                    "Your login was successful " +
+//                    twitterSessionResult.data.getUserName() +
+//                    "\nAuth Token Received: " +
+//                    twitterSessionResult.data.getAuthToken().token;
+//
+//            status.setText(output);
         }
 
         @Override
