@@ -16,13 +16,13 @@ public class TweetsActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (savedInstanceState == null) {
-            setContentView(R.layout.activity_content_and_toolbar);
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, TweetsFragment.newInstance()).commit();
+        setContentView(R.layout.activity_content_and_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_plain);
+        toolbar.setTitle(R.string.activity_tweets_title);
+        setSupportActionBar(toolbar);
 
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_plain);
-            toolbar.setTitle(R.string.activity_tweets_title);
-            setSupportActionBar(toolbar);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, TweetsFragment.newInstance()).commit();
         }
     }
 }
